@@ -43,7 +43,8 @@ const originalImagePaths = [
 ];
 
 function getDescriptionForImage(imagePath) {
-  const imageDescriptions = { //asso key-value image-description
+  const imageDescriptions = {
+    //asso key-value image-description
     "../images/2.png": "Description de l'image 2",
     "../images/affiche-complete2.png": "Description de l'affiche",
     "../images/Capture d’écran 2023-06-23 à 19.01.24.png":
@@ -81,12 +82,46 @@ document.addEventListener("click", (event) => {
   image.src = randomImagePath;
   image.style.position = "absolute";
   //image.style.zIndex = "-1"; // Empilement en arrière-plan
-  image.dataset.description = getDescriptionForImage(randomImagePath);
+
+  image.dataset.description = getDescriptionForImage(randomImagePath); //ajouter description à l'image
+
+  image.addEventListener("mouseover", () => {
+    image.dataset.displayTooltip = "true"; // Ajoutez un attribut personnalisé pour afficher le tooltip
+    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
+  });
+
+  image.addEventListener("mouseleave", () => {
+    image.dataset.displayTooltip = "false"; // Ajoutez un attribut personnalisé pour masquer le tooltip
+    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    if (image.dataset.displayTooltip === "true") {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+
+      tooltip.style.left = mouseX + "px";
+      tooltip.style.top = mouseY + "px";
+    }
+  });
+
+  function updateTooltipDisplay() {
+    const displayTooltip = image.dataset.displayTooltip === "true";
+    if (displayTooltip) {
+      tooltip.style.display = "block";
+      tooltip.textContent = image.dataset.description; // Mettez à jour le contenu du tooltip
+    } else {
+      tooltip.style.display = "none";
+    }
+  }
+
+  const tooltip = document.createElement("div");
+  tooltip.id = "tooltip";
+  document.body.appendChild(tooltip);
 
   image.onload = () => {
-
     // ajustement taille image
-    const maxWidth = 350; 
+    const maxWidth = 350;
     const maxHeight = 250;
     const aspectRatio = image.width / image.height;
 
@@ -119,7 +154,5 @@ document.addEventListener("click", (event) => {
     }
 
     imagePaths.splice(randomImageIndex, 1);
-
   };
 });
-
