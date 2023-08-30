@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz@8..60&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,700&display=swap");
+
+* {
+  margin: 0px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" stroke="black" stroke-dasharray="8 4" fill="none" /></svg>')
+      10 10,
+    auto;
+}
+
+body {
+  margin: 0px;
+  font-family: "Source Serif 4", serif;
+}
+
+header {
+  height: 10vh;
+  padding-top: 20px;
+}
+
+h1 {
+  font-family: "Source Serif 4", serif;
+  font-style: italic;
+}
+
+.flex-nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 95%;
+  margin: auto;
+}
+
+nav ul {
+  padding: 0px;
+}
+
+nav ul li {
+  margin: 0px 12px 0px 12px;
+}
+
+#shop {
+  font-weight: bold;
+}
+
+.nav1 {
+  display: flex;
+  font-weight: 400;
+}
+
+.nav2 {
+  display: flex;
+}
+
+h4 {
+  font-family: "Source Serif 4", serif;
+}
+
+p {
+  font-size: 13px;
+}
+/*******************section pricipale (side-infos + display)*********************/
+
+.flex-container {
+  display: flex;
+  height: 85vh;
+  max-width: 95%;
+  margin: auto;
+}
+
+/*******************Info section*********************/
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 10%;
+  margin-right: 25px;
+}
+
+/*******************display*********************/
+
+.display {
+  display: flex;
+  flex-grow: 1; /*le display prend toute la place restante dans le container*/
+  border-style: dotted;
+  border-color: rgb(78, 43, 149);
+}
+
+/**********************accessoires*********************************/
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out; /* Ajouter une transition de fondu */
+}
+
+/* .tooltip-container {
+  position: relative;
+} */
+
+.tooltip {
+  /* position: absolute; */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  /* display: none; */
+}
+
+/* .tooltip-container:hover .tooltip {
+  display: block;
+} */
+
+
+
