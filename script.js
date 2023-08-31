@@ -2,13 +2,13 @@
 const originalImagePaths = [
   "../images/2.png",
   "../images/affiche-complete2.png",
+  "../images/gif/boys.gif",
   "../images/Capture d’écran 2023-06-23 à 19.01.24.png",
   "../images/carré.png",
   "../images/CARROUSSEL2.png",
-  "../images/débat.png",
-  "../images/fiction.png",
+  "../images/gif/el-houb.gif",
+  "../images/gif/el-houb2.gif",
   // "./images/flou_0002_4.png",
-  // "./images/flou_0003_3.png",
   // "./images/flou_0004_2.png",
   // "./images/flou_0005_1.png",
   // "./images/flou_0006_Calque-0.png",
@@ -21,11 +21,9 @@ const originalImagePaths = [
   // "./images/img2.jpeg",
   // "./images/img3.png",
   // "./images/LOGO1-D.png",
-  // "./images/LOGO2-A.png",
   // "./images/LOGO3-D.png",
   // "./images/logo-noir.png",
-  // "./images/logotype-noir.png",
-  // "./images/monogramme-noir.png",
+  // "./images/monogramme-noir.png",  
   // "./images/P1011659.jpeg",
   // "./images/post-gen.png",
   // "./images/post-jeudi.png",
@@ -38,7 +36,9 @@ const originalImagePaths = [
   // "./images/ptva4.png",
   // "./images/SMOL_POSTER-ATLAS_JOUR.png",
   // "./images/SMOL_POSTER-ATLAS_NUIT.png",
-  // "./images/témoignage.png",
+  "../images/gif/velo.gif",
+  "../images/gif/TDMovieOut.2.gif",
+  "../images/gif/TDMovieOut.3.gif",
   // "./images/visuel-podcast.png",
 ];
 
@@ -51,8 +51,7 @@ function getDescriptionForImage(imagePath) {
       "Description de la capture d'écran",
     "../images/carré.png": "blablabla",
     "../images/CARROUSSEL2.png": "coucou",
-    "../images/débat.png": "helloooooooooo",
-    "../images/fiction.png": "ça va ?",
+
     // ... Ajoutez d'autres descriptions ici
   };
 
@@ -61,7 +60,7 @@ function getDescriptionForImage(imagePath) {
 
 let imagePaths = [...originalImagePaths];
 
-const maxDisplayedImages = 3;
+const maxDisplayedImages = 4;
 const displayedImages = [];
 
 document.addEventListener("click", (event) => {
@@ -74,50 +73,14 @@ document.addEventListener("click", (event) => {
     imagePaths = [...originalImagePaths];
   }
 
-  //
   const randomImageIndex = Math.floor(Math.random() * imagePaths.length);
   const randomImagePath = imagePaths[randomImageIndex];
 
   const image = new Image();
   image.src = randomImagePath;
   image.style.position = "absolute";
-  //image.style.zIndex = "-1"; // Empilement en arrière-plan
 
   image.dataset.description = getDescriptionForImage(randomImagePath); //ajouter description à l'image
-
-  image.addEventListener("mouseover", () => {
-    image.dataset.displayTooltip = "true"; // Ajoutez un attribut personnalisé pour afficher le tooltip
-    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
-  });
-
-  image.addEventListener("mouseleave", () => {
-    image.dataset.displayTooltip = "false"; // Ajoutez un attribut personnalisé pour masquer le tooltip
-    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
-  });
-
-  document.addEventListener("mousemove", (event) => {
-    if (image.dataset.displayTooltip === "true") {
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
-
-      tooltip.style.left = mouseX + "px";
-      tooltip.style.top = mouseY + "px";
-    }
-  });
-
-  function updateTooltipDisplay() {
-    const displayTooltip = image.dataset.displayTooltip === "true";
-    if (displayTooltip) {
-      tooltip.style.display = "block";
-      tooltip.textContent = image.dataset.description; // Mettez à jour le contenu du tooltip
-    } else {
-      tooltip.style.display = "none";
-    }
-  }
-
-  const tooltip = document.createElement("div");
-  tooltip.id = "tooltip";
-  document.body.appendChild(tooltip);
 
   image.onload = () => {
     // ajustement taille image
@@ -155,4 +118,40 @@ document.addEventListener("click", (event) => {
 
     imagePaths.splice(randomImageIndex, 1);
   };
+
+  //tooltip part
+
+  image.addEventListener("mouseover", () => {
+    image.dataset.displayTooltip = "true"; // Ajoutez un attribut personnalisé pour afficher le tooltip
+    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
+  });
+
+  image.addEventListener("mouseleave", () => {
+    image.dataset.displayTooltip = "false"; // Ajoutez un attribut personnalisé pour masquer le tooltip
+    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    if (image.dataset.displayTooltip === "true") {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+
+      tooltip.style.left = mouseX + "px";
+      tooltip.style.top = mouseY + "px";
+    }
+  });
+
+  const tooltip = document.createElement("div");
+  tooltip.id = "tooltip";
+  document.body.appendChild(tooltip);
+
+  function updateTooltipDisplay() {
+    const displayTooltip = image.dataset.displayTooltip === "true";
+    if (displayTooltip) {
+      tooltip.textContent = image.dataset.description; // Mettez à jour le contenu du tooltip
+      //tooltip.style.display = "block";
+    } else {
+      tooltip.style.display = "none";
+    }
+  }
 });
