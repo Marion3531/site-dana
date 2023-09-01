@@ -1,5 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz@8..60&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,700&display=swap");
+@font-face {
+  font-family: "concrete-bold-italic";
+  src: url("../fonts/cmu-concrete/cmunobi.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "typwriter-regular";
+  src: url("../fonts/cmu-typewriter/cmuntt.ttf") format("truetype");
+}
 
 * {
   margin: 0px;
@@ -8,12 +15,12 @@
 }
 
 html {
-  cursor: url('../curseur_custom.svg') 10 10, auto;
+  cursor: url("../curseur_custom.svg") 10 10, auto;
 }
 
 body {
   margin: 0px;
-  font-family: "Source Serif 4", serif;
+  font-family: "typwriter-regular", serif;
 }
 
 header {
@@ -22,8 +29,9 @@ header {
 }
 
 h1 {
-  font-family: "Source Serif 4", serif;
+  font-family: "concrete-bold-italic", serif;
   font-style: italic;
+  z-index: 1;
 }
 
 .flex-nav {
@@ -39,6 +47,7 @@ nav ul {
 
 nav ul li {
   margin: 0px 12px 0px 12px;
+  z-index: 1;
 }
 
 #shop {
@@ -54,19 +63,37 @@ nav ul li {
   display: flex;
 }
 
-h4 {
-  font-family: "Source Serif 4", serif;
+.section {
+  margin-bottom: 8px;
 }
 
-p {
-  font-size: 13px;
+h4, h5 {
+  font-family: "concrete-bold-italic", serif;
+  margin-bottom: 8px;
 }
+
+h5 {
+  font-size: 15px;
+}
+
+#contact-title {
+  color: rgb(132, 91, 255);
+}
+
+.info-section ul {
+  padding: 0px;
+}
+
+.info-section ul li {
+  font-size: 12px;
+}
+
 /*******************section pricipale (side-infos + display)*********************/
 
 .flex-container {
   display: flex;
   height: 85vh;
-  max-width: 95%;
+  max-width: 98%;
   margin: auto;
 }
 
@@ -75,7 +102,7 @@ p {
 .info-section {
   display: flex;
   flex-direction: column;
-  max-width: 10%;
+  max-width: 13%;
   margin-right: 25px;
   z-index: 1;
 }
@@ -89,7 +116,7 @@ p {
   border-color: rgb(132, 91, 255);
 }
 
-/**********************accessoires*********************************/
+/**********************accessoires & effets**********************/
 
 .fade-out {
   opacity: 0;
@@ -98,16 +125,64 @@ p {
 
 #tooltip {
   position: absolute;
+  max-width: 150px;
   display: none;
   background: white;
   color: black;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 2px;
+  border-radius: 14px;
   border-style: dotted;
+  border-width: 1.75px;
   font-size: 14px;
+  font-style: italic;
   z-index: 1000;
   pointer-events: none; /* Permet aux événements de la souris de passer à travers le tooltip */
 }
 
+img {
+  filter: grayscale(0%) invert(0%);
+  transition: filter 0.3s ease-in-out;
+}
 
+img:hover {
+  filter: grayscale(100%) invert(150%) contrast(100%);
+}
 
+/**********************Media Queries**********************/
+
+@media (max-width: 700px) {
+
+  header {
+    max-height: 7vh;
+    padding-top: 15px;
+  }
+  .nav1 {
+    display: none;
+  }
+  #about, #xp {
+    display: none;
+  }
+
+  .flex-container{
+    flex-direction: column;
+    height: 89vh;
+  }
+
+  .info-section{
+    max-width: 100%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+
+  }
+
+  #contact-title {
+    display: none;
+  }
+
+  #contact ul{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+}
