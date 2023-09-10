@@ -76,115 +76,171 @@ function getDescriptionForImage(imagePath) {
     //asso key-value image-description
 
     //identité visuelle de l’exposition Atlas Obscura au 6B, février 2022
-    "../images/Capture d’écran 2023-06-23 à 19.01.24.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/carré.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/img2.jpeg" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/img3.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/P1011659.jpeg" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/SMOL_POSTER-ATLAS_JOUR.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/SMOL_POSTER-ATLAS_NUIT.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/atlas-obscura.1.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/atlas-obscura.2.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/atlas-obscura.3.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
-    "../images/12.png" : "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/Capture d’écran 2023-06-23 à 19.01.24.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/carré.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/img2.jpeg":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/img3.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/P1011659.jpeg":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/SMOL_POSTER-ATLAS_JOUR.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/SMOL_POSTER-ATLAS_NUIT.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/atlas-obscura.1.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/atlas-obscura.2.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/atlas-obscura.3.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
+    "../images/12.png":
+      "identité visuelle de l’exposition Atlas Obscura au 6B, février 2022",
 
     //couverture de l’album ‘kidscore’ de Talita Otović, 2022
-    "../images/kidscore.jpeg" : "couverture de l’album ‘kidscore’ de Talita Otović, 2022",
-    "../images/kidscore2.jpg" : "couverture de l’album ‘kidscore’ de Talita Otović, 2022",
+    "../images/kidscore.jpeg":
+      "couverture de l’album ‘kidscore’ de Talita Otović, 2022",
+    "../images/kidscore2.jpg":
+      "couverture de l’album ‘kidscore’ de Talita Otović, 2022",
 
     //logo animé pour El Houb, 2023
-    "../images/gif/el-houb.gif" : "logo animé pour El Houb, 2023",
-    "../images/gif/el-houb2.gif" : "logo animé pour El Houb, 2023",
+    "../images/gif/el-houb.gif": "logo animé pour El Houb, 2023",
+    "../images/gif/el-houb2.gif": "logo animé pour El Houb, 2023",
 
     //vjing pour la soirée ‘Tentacular’ au Point Éphémère, 2022
-    "../images/gif/boys.gif" : "vjing pour la soirée ‘Tentacular’ au Point Éphémère, 2022",
-    "../images/gif/velo.gif" : "vjing pour la soirée ‘Tentacular’ au Point Éphémère, 2022",
+    "../images/gif/boys.gif":
+      "vjing pour la soirée ‘Tentacular’ au Point Éphémère, 2022",
+    "../images/gif/velo.gif":
+      "vjing pour la soirée ‘Tentacular’ au Point Éphémère, 2022",
 
     //expérimentations vidéo sur TouchDesigner, 2023
-    "../images/gif/TDMovieOut.2.gif" : "expérimentations vidéo sur TouchDesigner, 2023",
+    "../images/gif/TDMovieOut.2.gif":
+      "expérimentations vidéo sur TouchDesigner, 2023",
 
     //identité visuelle du festival ‘Hardcoeur’, 2023
-    "../images/affiche-complete2.png" : "identité visuelle du festival ‘Hardcoeur’, 2023",
-    "../images/CARROUSSEL2.png" : "identité visuelle du festival ‘Hardcoeur’, 2023",
-    "../images/Illustration_sans_titre2_nomaison.png" : "identité visuelle du festival ‘Hardcoeur’, 2023",
-    "../images/img1.png" : "identité visuelle du festival ‘Hardcoeur’, 2023",
+    "../images/affiche-complete2.png":
+      "identité visuelle du festival ‘Hardcoeur’, 2023",
+    "../images/CARROUSSEL2.png":
+      "identité visuelle du festival ‘Hardcoeur’, 2023",
+    "../images/Illustration_sans_titre2_nomaison.png":
+      "identité visuelle du festival ‘Hardcoeur’, 2023",
+    "../images/img1.png": "identité visuelle du festival ‘Hardcoeur’, 2023",
 
     //visuel pour la soirée organisée par Manifesto XXI au Petit Bain, 2023
-    "../images/post-soirée.png" : "visuel pour la soirée organisée par Manifesto XXI au Petit Bain, 2023",
+    "../images/post-soirée.png":
+      "visuel pour la soirée organisée par Manifesto XXI au Petit Bain, 2023",
 
     //identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum
-    "../images/post-gen.png" : "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
-    "../images/post-jeudi.png" : "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
-    "../images/post-samedi.png" : "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
-    "../images/post-vendredi.png" : "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
+    "../images/post-gen.png":
+      "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
+    "../images/post-jeudi.png":
+      "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
+    "../images/post-samedi.png":
+      "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
+    "../images/post-vendredi.png":
+      "identité visuelle du festival ‘Never not raving’ curaté par Jennifer Cardini au Badaboum",
 
     //identité visuelle du collectif ‘Paracosmos’, 2023
-    "../images/IMG_2270f.png" : "identité visuelle du collectif ‘Paracosmos’, 2023",
-    "../images/IMG_2285a.png" : "identité visuelle du collectif ‘Paracosmos’, 2023",
-    "../images/IMG_2285b.png" : "identité visuelle du collectif ‘Paracosmos’, 2023",
-    "../images/logo-noir.png" : "identité visuelle du collectif ‘Paracosmos’, 2023",
-    "../images/monogramme-noir.png" : "identité visuelle du collectif ‘Paracosmos’, 2023",
+    "../images/IMG_2270f.png":
+      "identité visuelle du collectif ‘Paracosmos’, 2023",
+    "../images/IMG_2285a.png":
+      "identité visuelle du collectif ‘Paracosmos’, 2023",
+    "../images/IMG_2285b.png":
+      "identité visuelle du collectif ‘Paracosmos’, 2023",
+    "../images/logo-noir.png":
+      "identité visuelle du collectif ‘Paracosmos’, 2023",
+    "../images/monogramme-noir.png":
+      "identité visuelle du collectif ‘Paracosmos’, 2023",
 
     //illustrations et identité visuelle du podcast ‘Lesbiennes au coin du feu’, 2022
-    "../images/Illustration_finale.png" : "illustrations et identité visuelle du podcast ‘Lesbiennes au coin du feu’, 2022",
-    "../images/visuel-podcast.png" : "illustrations et identité visuelle du podcast ‘Lesbiennes au coin du feu’, 2022",
+    "../images/Illustration_finale.png":
+      "illustrations et identité visuelle du podcast ‘Lesbiennes au coin du feu’, 2022",
+    "../images/visuel-podcast.png":
+      "illustrations et identité visuelle du podcast ‘Lesbiennes au coin du feu’, 2022",
 
     //fonds réalisés pour l’identité visuelle de Manifesto XXI
-    "../images/flou_0002_4.png" : "fonds réalisés pour l’identité visuelle de Manifesto XXI",
-    "../images/flou_0004_2.png" : "fonds réalisés pour l’identité visuelle de Manifesto XXI",
-    "../images/flou_0005_1.png" : "fonds réalisés pour l’identité visuelle de Manifesto XXI",
-    "../images/flou_0006_Calque-0.png" : "fonds réalisés pour l’identité visuelle de Manifesto XXI",
+    "../images/flou_0002_4.png":
+      "fonds réalisés pour l’identité visuelle de Manifesto XXI",
+    "../images/flou_0004_2.png":
+      "fonds réalisés pour l’identité visuelle de Manifesto XXI",
+    "../images/flou_0005_1.png":
+      "fonds réalisés pour l’identité visuelle de Manifesto XXI",
+    "../images/flou_0006_Calque-0.png":
+      "fonds réalisés pour l’identité visuelle de Manifesto XXI",
 
     //visuels et logo pour le podcast GenZ Dialogues de Cartier, 2022
-    "../images/LOGO1-D.png" : "visuels et logo pour le podcast GenZ Dialogues de Cartier, 2022",
-    "../images/LOGO3-D.png" : "visuels et logo pour le podcast GenZ Dialogues de Cartier, 2022",
+    "../images/LOGO1-D.png":
+      "visuels et logo pour le podcast GenZ Dialogues de Cartier, 2022",
+    "../images/LOGO3-D.png":
+      "visuels et logo pour le podcast GenZ Dialogues de Cartier, 2022",
 
     //posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023
-    "../images/ptva.png" : "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
-    "../images/ptva2.png" : "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
-    "../images/ptva3.png" : "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
-    "../images/ptva4.png" : "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
-    
+    "../images/ptva.png":
+      "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
+    "../images/ptva2.png":
+      "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
+    "../images/ptva3.png":
+      "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
+    "../images/ptva4.png":
+      "posts instagram réalisés pour le podcast ‘Paye ta vie d’artiste’, 2023",
+
     //série photo argentique, été 2022
-    "../images/NB1.jpg" : "série photo argentique, été 2022",
-    "../images/NB2.jpg" : "série photo argentique, été 2022",
-    "../images/NB3.JPG" : "série photo argentique, été 2022",
+    "../images/NB1.jpg": "série photo argentique, été 2022",
+    "../images/NB2.jpg": "série photo argentique, été 2022",
+    "../images/NB3.JPG": "série photo argentique, été 2022",
 
     //série photo argentique, procédé chimique d’altération de l’image, 2021
-    "../images/tentacular1.png" : "série photo argentique, procédé chimique d’altération de l’image, 2021",
-    "../images/tentacular2.png" : "série photo argentique, procédé chimique d’altération de l’image, 2021",
-    "../images/tentacular3.png" : "série photo argentique, procédé chimique d’altération de l’image, 2021",
+    "../images/tentacular1.png":
+      "série photo argentique, procédé chimique d’altération de l’image, 2021",
+    "../images/tentacular2.png":
+      "série photo argentique, procédé chimique d’altération de l’image, 2021",
+    "../images/tentacular3.png":
+      "série photo argentique, procédé chimique d’altération de l’image, 2021",
 
     //série d’images réalisées avec une intelligence artificielle, 2023
-    "../images/midjourney1.png" : "série d’images réalisées avec une intelligence artificielle, 2023",
-    "../images/midjourney2.png" : "série d’images réalisées avec une intelligence artificielle, 2023",
-    "../images/midjourney3.png" : "série d’images réalisées avec une intelligence artificielle, 2023",
-    "../images/midjourney4.png" : "série d’images réalisées avec une intelligence artificielle, 2023",
+    "../images/midjourney1.png":
+      "série d’images réalisées avec une intelligence artificielle, 2023",
+    "../images/midjourney2.png":
+      "série d’images réalisées avec une intelligence artificielle, 2023",
+    "../images/midjourney3.png":
+      "série d’images réalisées avec une intelligence artificielle, 2023",
+    "../images/midjourney4.png":
+      "série d’images réalisées avec une intelligence artificielle, 2023",
 
     //écharpe designée et mise à la vente sur mon site web, 2022
-    "../images/scarf1.png" : "écharpe designée et mise à la vente sur mon site web, 2022",
-    "../images/scarf2.png" : "écharpe designée et mise à la vente sur mon site web, 2022",
-    
+    "../images/scarf1.png":
+      "écharpe designée et mise à la vente sur mon site web, 2022",
+    "../images/scarf2.png":
+      "écharpe designée et mise à la vente sur mon site web, 2022",
+
     //couverture de single pour s.h.a, 2023
-    "../images/sha.jpg" : "couverture de single pour s.h.a, 2023",
+    "../images/sha.jpg": "couverture de single pour s.h.a, 2023",
 
     //identité visuelle des archives départementales de l’Aude, images d’archives, 2022
-    "../images/marquepage.JPG" : "identité visuelle des archives départementales de l’Aude, images d’archives, 2022",
-    "../images/marquepage-femme1.PNG" : "identité visuelle des archives départementales de l’Aude, images d’archives, 2022",
-    "../images/marquepage-femme2.png" : "identité visuelle des archives départementales de l’Aude, images d’archives, 2022",
+    "../images/marquepage.JPG":
+      "identité visuelle des archives départementales de l’Aude, images d’archives, 2022",
+    "../images/marquepage-femme1.PNG":
+      "identité visuelle des archives départementales de l’Aude, images d’archives, 2022",
+    "../images/marquepage-femme2.png":
+      "identité visuelle des archives départementales de l’Aude, images d’archives, 2022",
 
     //performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023
-    "../images/gif/vj_08-06_1.png" : "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
-    "../images/gif/vj_08-06_2.gif" : "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
-    "../images/gif/vj_08-06_3.gif" : "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
-    "../images/gif/vj_08-06_4.png" : "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
+    "../images/gif/vj_08-06_1.png":
+      "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
+    "../images/gif/vj_08-06_2.gif":
+      "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
+    "../images/gif/vj_08-06_3.gif":
+      "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
+    "../images/gif/vj_08-06_4.png":
+      "performance vjing live avec Alexi Shell à la Cité de l’Agriculture, 2023",
 
     // "../images/2.png",
     // "../images/D1pe0me 6.png";
     // "../images/FOND_ MEM 7.png",
     // "../images/ok.png",
     //"../images/IMG_2219.PNG" : "logo exgirlfriend",
-
   };
 
   return imageDescriptions[imagePath] || ""; //si pas de description correspondante, return rien
@@ -192,8 +248,18 @@ function getDescriptionForImage(imagePath) {
 
 let imagePaths = [...originalImagePaths];
 
-const maxDisplayedImages = 8;
+let maxDisplayedImages;
+
+const screenWidth = window.screen.width;
+console.log(screenWidth);
+
 const displayedImages = [];
+
+if (screenWidth >= 1200) {
+  maxDisplayedImages = 8;
+} else {
+  maxDisplayedImages = 5;
+}
 
 document.addEventListener("click", (event) => {
   if (!event.target.classList.contains("display")) {
@@ -215,9 +281,21 @@ document.addEventListener("click", (event) => {
   image.dataset.description = getDescriptionForImage(randomImagePath); //ajouter description à l'image
 
   image.onload = () => {
-    // ajustement taille image
-    const maxWidth = 350;
-    const maxHeight = 250;
+
+    // Definir valeurs maxWidth et maxHeight en fonction de la largeur de l'écran
+    let maxWidth, maxHeight;
+
+    maxWidth = 350;
+    maxHeight = 250;
+
+    // if (screenWidth >= 1200) {
+    //   maxWidth = 350;
+    //   maxHeight = 250;
+    // } else {
+    //   maxWidth = 250;
+    //   maxHeight = 150;
+    // }
+
     const aspectRatio = image.width / image.height;
 
     if (image.width > maxWidth) {

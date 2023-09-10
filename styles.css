@@ -156,9 +156,11 @@ img:hover {
     max-height: 7vh;
     padding-top: 15px;
   }
+
   .nav1 {
     display: none;
   }
+
   #about, #xp {
     display: none;
   }
@@ -181,8 +183,9 @@ img:hover {
 
   #contact ul{
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    flex-direction: column;
+    max-width: 95%;
+    margin: auto;
   }
 
 }
