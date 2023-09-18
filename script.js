@@ -247,127 +247,174 @@ function getDescriptionForImage(imagePath) {
 }
 
 let imagePaths = [...originalImagePaths];
-
-let maxDisplayedImages;
-
-const screenWidth = window.screen.width;
-console.log(screenWidth);
-
 const displayedImages = [];
+let maxDisplayedImages = 8;
+const screenWidth = window.screen.width;
+
+//////////////////////////////////////////////////////////////////////////////
 
 if (screenWidth >= 1200) {
-  maxDisplayedImages = 8;
-} else {
-  maxDisplayedImages = 5;
-}
-
-document.addEventListener("click", (event) => {
-  if (!event.target.classList.contains("display")) {
-    return; // Si le clic n'est pas dans le cadre "display", ne rien faire
-  }
-
-  // si tableau vide, réinitialiser avec valeurs du tableau d'origine
-  if (imagePaths.length === 0) {
-    imagePaths = [...originalImagePaths];
-  }
-
-  const randomImageIndex = Math.floor(Math.random() * imagePaths.length);
-  const randomImagePath = imagePaths[randomImageIndex];
-
-  const image = new Image();
-  image.src = randomImagePath;
-  image.style.position = "absolute";
-
-  image.dataset.description = getDescriptionForImage(randomImagePath); //ajouter description à l'image
-
-  image.onload = () => {
-
-    // Definir valeurs maxWidth et maxHeight en fonction de la largeur de l'écran
-    let maxWidth, maxHeight;
-
-    maxWidth = 350;
-    maxHeight = 250;
-
-    // if (screenWidth >= 1200) {
-    //   maxWidth = 350;
-    //   maxHeight = 250;
-    // } else {
-    //   maxWidth = 250;
-    //   maxHeight = 150;
-    // }
-
-    const aspectRatio = image.width / image.height;
-
-    if (image.width > maxWidth) {
-      image.width = maxWidth;
-      image.height = maxWidth / aspectRatio;
+  document.addEventListener("click", (event) => {
+    if (!event.target.classList.contains("display")) {
+      return; // Si le clic n'est pas dans le cadre "display", ne rien faire
     }
 
-    if (image.height > maxHeight) {
-      image.height = maxHeight;
-      image.width = maxHeight * aspectRatio;
+    // si tableau vide, réinitialiser avec valeurs du tableau d'origine
+    if (imagePaths.length === 0) {
+      imagePaths = [...originalImagePaths];
     }
 
-    //centrer image au clic de souris
-    const x = event.clientX - image.width / 2;
-    const y = event.clientY - image.height / 2;
-    image.style.left = `${x}px`;
-    image.style.top = `${y}px`;
+    const randomImageIndex = Math.floor(Math.random() * imagePaths.length);
+    const randomImagePath = imagePaths[randomImageIndex];
 
-    const displayContainer = document.querySelector(".display");
-    displayContainer.appendChild(image);
+    const image = new Image();
+    image.src = randomImagePath;
+    image.style.position = "absolute";
 
-    displayedImages.push(image);
-    if (displayedImages.length > maxDisplayedImages) {
-      const firstImage = displayedImages.shift();
-      firstImage.classList.add("fade-out");
-      firstImage.addEventListener("transitionend", () => {
-        firstImage.remove();
-      });
-    }
+    image.dataset.description = getDescriptionForImage(randomImagePath); //ajouter description à l'image
 
-    imagePaths.splice(randomImageIndex, 1);
-  };
+    image.onload = () => {
+      // Definir valeurs maxWidth et maxHeight en fonction de la largeur de l'écran
+      let maxWidth, maxHeight;
 
-  //tooltip part
+      maxWidth = 350;
+      maxHeight = 250;
 
-  const tooltip = document.createElement("div");
-  tooltip.id = "tooltip";
-  document.body.appendChild(tooltip);
+      const aspectRatio = image.width / image.height;
 
-  image.addEventListener("mouseover", (event) => {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
+      if (image.width > maxWidth) {
+        image.width = maxWidth;
+        image.height = maxWidth / aspectRatio;
+      }
 
-    tooltip.style.left = mouseX + "px";
-    tooltip.style.top = mouseY + "px";
+      if (image.height > maxHeight) {
+        image.height = maxHeight;
+        image.width = maxHeight * aspectRatio;
+      }
 
-    image.dataset.displayTooltip = "true"; // Définir l'attribut pour afficher le tooltip
-    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
-  });
+      //centrer image au clic de souris
+      const x = event.clientX - image.width / 2;
+      const y = event.clientY - image.height / 2;
+      image.style.left = `${x}px`;
+      image.style.top = `${y}px`;
 
-  image.addEventListener("mouseleave", () => {
-    image.dataset.displayTooltip = "false"; // Définir l'attribut pour masquer le tooltip
-    updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
-  });
+      const displayContainer = document.querySelector(".display");
+      displayContainer.appendChild(image);
 
-  document.addEventListener("mousemove", (event) => {
-    if (image.dataset.displayTooltip === "true") {
+      displayedImages.push(image);
+      if (displayedImages.length > maxDisplayedImages) {
+        const firstImage = displayedImages.shift();
+        firstImage.classList.add("fade-out");
+        firstImage.addEventListener("transitionend", () => {
+          firstImage.remove();
+        });
+      }
+
+      imagePaths.splice(randomImageIndex, 1);
+    };
+
+    //tooltip part
+
+    const tooltip = document.createElement("div");
+    tooltip.id = "tooltip";
+    document.body.appendChild(tooltip);
+
+    image.addEventListener("mouseover", (event) => {
       const mouseX = event.clientX;
       const mouseY = event.clientY;
 
       tooltip.style.left = mouseX + "px";
       tooltip.style.top = mouseY + "px";
+
+      image.dataset.displayTooltip = "true"; // Définir l'attribut pour afficher le tooltip
+      updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
+    });
+
+    image.addEventListener("mouseleave", () => {
+      image.dataset.displayTooltip = "false"; // Définir l'attribut pour masquer le tooltip
+      updateTooltipDisplay(); // Mettre à jour l'affichage du tooltip
+    });
+
+    document.addEventListener("mousemove", (event) => {
+      if (image.dataset.displayTooltip === "true") {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        tooltip.style.left = mouseX + "px";
+        tooltip.style.top = mouseY + "px";
+      }
+    });
+
+    function updateTooltipDisplay() {
+      const displayTooltip = image.dataset.displayTooltip === "true";
+      if (displayTooltip) {
+        tooltip.textContent = image.dataset.description; // Mettre à jour le contenu du tooltip
+        tooltip.style.display = "block";
+      } else {
+        tooltip.style.display = "none";
+      }
     }
   });
+} else {
+  const imageContainer = document.querySelector(".display");
+  let image;
+  let currentImageIndex = 0;
 
-  function updateTooltipDisplay() {
-    const displayTooltip = image.dataset.displayTooltip === "true";
-    if (displayTooltip) {
-      tooltip.textContent = image.dataset.description; // Mettre à jour le contenu du tooltip
-      tooltip.style.display = "block";
-    } else {
-      tooltip.style.display = "none";
+  // Fonction pour afficher l'image suivante
+  function displayNextImage() {
+    // Vérifiez si l'index est inférieur au nombre total d'images
+    if (currentImageIndex < originalImagePaths.length) {
+      // Créez un élément image
+      const image = new Image();
+
+      // Définissez la source de l'image sur le chemin de l'image actuelle
+      image.src = originalImagePaths[currentImageIndex];
+
+      image.classList.add("img-for-mobile");
+
+      // Supprimez le contenu précédent du conteneur d'images
+      imageContainer.innerHTML = "";
+
+      // Ajoutez l'image au conteneur d'images
+      imageContainer.appendChild(image);
+
+      // Incrémentez l'index pour passer à l'image suivante
+      currentImageIndex++;
+
+      // Réinitialisez l'index si toutes les images ont été affichées
+      if (currentImageIndex === originalImagePaths.length) {
+        currentImageIndex = 0;
+      }
     }
   }
-});
+
+  displayNextImage();
+
+  // Définissez un gestionnaire d'événements pour le swipe sur la version mobile
+  if (screenWidth <= 768) {
+    // Ajustez la largeur maximale pour la version mobile
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    // Gestionnaire d'événement pour le touchstart (début du toucher)
+    imageContainer.addEventListener("touchstart", (e) => {
+      touchstartX = e.touches[0].clientX;
+    });
+
+    // Gestionnaire d'événement pour le touchend (fin du toucher)
+    imageContainer.addEventListener("touchend", (e) => {
+      touchendX = e.changedTouches[0].clientX;
+
+      // Si le swipe va vers la gauche (vers la droite sur un écran mobile)
+      if (touchendX < touchstartX) {
+        // Déplacez l'image vers la gauche avec une transition en utilisant transform
+        image.style.transform = "translateX(-100%)"; // Déplacez l'image hors de l'écran vers la gauche
+        setTimeout(() => {
+          // Mettez à jour l'image et réinitialisez sa position
+          displayNextImage();
+          image.style.transform = "translateX(0)"; // Réinitialisez la position
+        }, 300); // Attendre la fin de l'animation CSS
+      }
+    });
+  }
+}

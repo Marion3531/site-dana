@@ -50,24 +50,25 @@ nav ul li {
   z-index: 1;
 }
 
-#shop {
-  font-weight: bold;
-}
-
 .nav1 {
   display: flex;
   font-weight: 400;
 }
 
-.nav2 {
+/* .nav2 {
   display: flex;
 }
+
+#shop {
+  font-weight: bold;
+} */
 
 .section {
   margin-bottom: 8px;
 }
 
-h4, h5 {
+h4,
+h5 {
   font-family: "concrete-bold-italic", serif;
   margin-bottom: 8px;
 }
@@ -151,41 +152,58 @@ img:hover {
 /**********************Media Queries**********************/
 
 @media (max-width: 700px) {
-
   header {
     max-height: 7vh;
-    padding-top: 15px;
+    padding-top: 12px;
+  }
+
+  .flex-nav {
+    flex-direction: column;
   }
 
   .nav1 {
-    display: none;
+
   }
 
   #about, #xp {
     display: none;
   }
 
-  .flex-container{
+  .flex-container {
     flex-direction: column;
-    height: 89vh;
+    height: 60vh;
   }
 
-  .info-section{
+  .display {
+    overflow: hidden; 
+    position: relative;
+    max-width: 98%;
+    margin: auto;
+  }
+
+  .img-for-mobile {
+    object-fit: contain;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .info-section {
     max-width: 100%;
     margin-right: 0px;
     margin-bottom: 0px;
-
   }
 
   #contact-title {
     display: none;
   }
 
-  #contact ul{
+  #contact ul {
     display: flex;
     flex-direction: column;
     max-width: 95%;
     margin: auto;
   }
-
 }
