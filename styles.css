@@ -153,8 +153,16 @@ img:hover {
 
 @media (max-width: 700px) {
   header {
-    max-height: 7vh;
+    max-height: 8vh;
     padding-top: 12px;
+  }
+
+  h1 {
+    margin-bottom: 4px;
+  }
+
+  #activities {
+    margin-left: 1px;
   }
 
   .flex-nav {
@@ -162,10 +170,10 @@ img:hover {
   }
 
   .nav1 {
-
   }
 
-  #about, #xp {
+  #about,
+  #xp {
     display: none;
   }
 
@@ -175,19 +183,38 @@ img:hover {
   }
 
   .display {
-    overflow: hidden; 
+    overflow: hidden;
     position: relative;
-    max-width: 98%;
+    width: 98%;
     margin: auto;
+    margin-top: 20px;
   }
 
   .img-for-mobile {
     object-fit: contain;
+    height: 100%;
     max-height: 100%;
     width: auto;
     max-width: 100%;
     margin: auto;
     transition: transform 0.3s ease-in-out;
+  }
+
+  img:hover {
+    filter: none;
+  }
+
+  .description-container {
+    max-width: 60%;
+    margin: auto;
+    background: white;
+    color: black;
+    padding: 2px;
+    border-radius: 14px;
+    border-style: dotted;
+    border-width: 1.75px;
+    font-size: 14px;
+    font-style: italic;
   }
 
   .info-section {

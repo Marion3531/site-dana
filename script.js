@@ -1,74 +1,95 @@
 // document.addEventListener("DOMContentLoaded", () => { });
 const originalImagePaths = [
-  "../images/12.png",
+  //VRAC SANS DESCRIPTION
+  "../images/ok.png",
   "../images/2.png",
-  "../images/affiche-complete2.png",
+  "../images/D1pe0me 6.png",
+  "../images/FOND_ MEM 7.png",
+  "../images/IMG_2219.PNG",
+  //ATLAS OBSCURA
+  "../images/12.png",
   "../images/atlas-obscura.1.png",
   "../images/atlas-obscura.2.png",
   "../images/atlas-obscura.3.png",
-  "../images/gif/boys.gif",
   "../images/Capture d’écran 2023-06-23 à 19.01.24.png",
   "../images/carré.png",
-  "../images/CARROUSSEL2.png",
-  "../images/D1pe0me 6.png",
-  "../images/FOND_ MEM 7.png",
-  "../images/gif/el-houb.gif",
-  "../images/gif/el-houb2.gif",
-  "../images/flou_0002_4.png",
-  "../images/flou_0004_2.png",
-  "../images/flou_0005_1.png",
-  "../images/flou_0006_Calque-0.png",
-  "../images/Illustration_finale.png",
-  "../images/Illustration_sans_titre2_nomaison.png",
-  "../images/IMG_2219.PNG",
-  "../images/IMG_2270f.png",
-  "../images/IMG_2285a.png",
-  "../images/IMG_2285b.png",
-  "../images/img1.png",
   "../images/img2.jpeg",
   "../images/img3.png",
-  "../images/kidscore.jpeg",
-  "../images/kidscore2.jpg",
-  "../images/LOGO1-D.png",
-  "../images/LOGO3-D.png",
-  "../images/logo-noir.png",
-  "../images/marquepage.JPG",
-  "../images/marquepage-femme1.PNG",
-  "../images/marquepage-femme2.png",
-  "../images/midjourney1.png",
-  "../images/midjourney2.png",
-  "../images/midjourney3.png",
-  "../images/midjourney4.png",
-  "../images/monogramme-noir.png",
-  "../images/NB1.jpg",
-  "../images/NB2.jpg",
-  "../images/NB3.JPG",
-  "../images/ok.png",
   "../images/P1011659.jpeg",
-  "../images/post-gen.png",
-  "../images/post-jeudi.png",
-  "../images/post-samedi.png",
-  "../images/post-soirée.png",
-  "../images/post-vendredi.png",
-  "../images/ptva.png",
-  "../images/ptva2.png",
-  "../images/ptva3.png",
-  "../images/ptva4.png",
-  "../images/scarf1.png",
-  "../images/scarf2.png",
-  "../images/sha.jpg",
   "../images/SMOL_POSTER-ATLAS_JOUR.png",
   "../images/SMOL_POSTER-ATLAS_NUIT.png",
+  //KIDSCORE
+  "../images/kidscore.jpeg",
+  "../images/kidscore2.jpg",
+  //EL HOUB
+  "../images/gif/el-houb.gif",
+  "../images/gif/el-houb2.gif",
+  //PETIT BAIN Manifesto
+  "../images/post-soirée.png",
+  //Vjing Tentacular
+  "../images/gif/boys.gif",
+  "../images/gif/velo.gif",
+  //Photos tentacular
   "../images/tentacular1.png",
   "../images/tentacular2.png",
   "../images/tentacular3.png",
-  "../images/gif/TDMovieOut.2.gif",
-  "../images/gif/velo.gif",
+  //Archives départementales de l’Aude
+  "../images/marquepage.JPG",
+  "../images/marquepage-femme1.PNG",
+  "../images/marquepage-femme2.png",
+  //HARDCOEUR
+  "../images/affiche-complete2.png",
+  "../images/CARROUSSEL2.png",
+  "../images/Illustration_sans_titre2_nomaison.png",
+  "../images/img1.png",
+  //Gen Z
+  "../images/LOGO1-D.png",
+  "../images/LOGO3-D.png",
+  //Never not raving
+  "../images/post-gen.png",
+  "../images/post-jeudi.png",
+  "../images/post-vendredi.png",
+  "../images/post-samedi.png",
+  //Lesbiennes au coin du feu
+  "../images/Illustration_finale.png",
+  "../images/visuel-podcast.png",
+  //Vjing Alexi Shell
   "../images/vj_08-06_1.png",
   "../images/gif/vj_08-06_2.gif",
   "../images/gif/vj_08-06_3.gif",
   "../images/vj_08-06_4.png",
-  "../images/visuel-podcast.png",
+  //Single SHA
+  "../images/sha.jpg",
+  //MIDJOURNEY
+  "../images/midjourney1.png",
+  "../images/midjourney2.png",
+  "../images/midjourney3.png",
+  "../images/midjourney4.png",
+  //PARACOSMOS
+  "../images/IMG_2270f.png",
+  "../images/IMG_2285a.png",
+  "../images/IMG_2285b.png",
+  "../images/logo-noir.png",
+  "../images/monogramme-noir.png",
+  //Manifesto XXI
+  "../images/flou_0002_4.png",
+  "../images/flou_0004_2.png",
+  "../images/flou_0005_1.png",
+  "../images/flou_0006_Calque-0.png",
+  //photo argentique
+  "../images/NB1.jpg",
+  "../images/NB2.jpg",
+  "../images/NB3.JPG",
+  //TouchDesigner
+  "../images/gif/TDMovieOut.2.gif",
+  //PTVA
+  "../images/ptva.png",
+  "../images/ptva2.png",
+  "../images/ptva3.png",
+  "../images/ptva4.png",
+  //SCARF
+  "../images/scarf1.png",
+  "../images/scarf2.png",
 ];
 
 function getDescriptionForImage(imagePath) {
@@ -357,15 +378,15 @@ if (screenWidth >= 1200) {
   });
 } else {
   const imageContainer = document.querySelector(".display");
-  let image;
   let currentImageIndex = 0;
+  let image; // Déclarez la variable image en dehors de la fonction
 
   // Fonction pour afficher l'image suivante
   function displayNextImage() {
     // Vérifiez si l'index est inférieur au nombre total d'images
     if (currentImageIndex < originalImagePaths.length) {
       // Créez un élément image
-      const image = new Image();
+      image = new Image(); // Affectez l'image à la variable image
 
       // Définissez la source de l'image sur le chemin de l'image actuelle
       image.src = originalImagePaths[currentImageIndex];
@@ -388,6 +409,11 @@ if (screenWidth >= 1200) {
     }
   }
 
+  // Créez une div pour afficher la description
+  const descriptionContainer = document.createElement("div");
+  descriptionContainer.classList.add("description-container");
+  imageContainer.parentNode.appendChild(descriptionContainer);
+
   displayNextImage();
 
   // Définissez un gestionnaire d'événements pour le swipe sur la version mobile
@@ -406,14 +432,29 @@ if (screenWidth >= 1200) {
       touchendX = e.changedTouches[0].clientX;
 
       // Si le swipe va vers la gauche (vers la droite sur un écran mobile)
-      if (touchendX < touchstartX) {
+      if (touchendX < touchstartX && image) {
+        // Assurez-vous que image est défini
         // Déplacez l'image vers la gauche avec une transition en utilisant transform
         image.style.transform = "translateX(-100%)"; // Déplacez l'image hors de l'écran vers la gauche
         setTimeout(() => {
           // Mettez à jour l'image et réinitialisez sa position
           displayNextImage();
-          image.style.transform = "translateX(0)"; // Réinitialisez la position
+          if (image) {
+            image.style.transform = "translateX(0)"; // Réinitialisez la position
+          }
         }, 300); // Attendre la fin de l'animation CSS
+
+        // Mettez à jour la description en fonction de l'image actuelle
+        const imagePath = originalImagePaths[currentImageIndex];
+        const description = getDescriptionForImage(imagePath);
+        console.log(description);
+        // Affichez la description uniquement si elle existe
+        if (description) {
+          descriptionContainer.textContent = description;
+          descriptionContainer.style.display = "block"; // Affichez la div de description
+        } else {
+          descriptionContainer.style.display = "none"; // Masquez la div de description s'il n'y a pas de description
+        }
       }
     });
   }
