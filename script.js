@@ -269,7 +269,7 @@ function getDescriptionForImage(imagePath) {
 
 let imagePaths = [...originalImagePaths];
 const displayedImages = [];
-let maxDisplayedImages = 8;
+let maxDisplayedImages = 7;
 const screenWidth = window.screen.width;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -378,84 +378,128 @@ if (screenWidth >= 1200) {
   });
 } else {
   const imageContainer = document.querySelector(".display");
+  const flexContainer = document.querySelector(".flex-container");
+  const descriptionContainer = document.createElement("div");
+  descriptionContainer.classList.add("description-container");
+
+  // Créez une nouvelle div pour englober display et description-container
+  const containerDiv = document.createElement("div");
+  containerDiv.classList.add("image-container"); // Ajoutez une classe au conteneur si nécessaire
+
+  // Ajoutez la div de description dans le conteneur
+  containerDiv.appendChild(imageContainer);
+  containerDiv.appendChild(descriptionContainer);
+
+  // Ajoutez le conteneur dans le parent node
+  flexContainer.appendChild(containerDiv);
+
   let currentImageIndex = 0;
-  let image; // Déclarez la variable image en dehors de la fonction
+  let imageElements = []; // Tableau pour stocker les éléments image préchargés
+  let touchstartX = 0;
+  let touchendX = 0;
+  let swipeDirection = null;
 
-  // Fonction pour afficher l'image suivante
-  function displayNextImage() {
-    // Vérifiez si l'index est inférieur au nombre total d'images
-    if (currentImageIndex < originalImagePaths.length) {
-      // Créez un élément image
-      image = new Image(); // Affectez l'image à la variable image
+  // Préchargez toutes les images
+  originalImagePaths.forEach((imagePath) => {
+    const image = new Image();
+    image.src = imagePath;
+    image.style.display = "none"; // Masquez toutes les images par défaut
+    image.classList.add("img-for-mobile");
+    imageContainer.appendChild(image);
+    imageElements.push(image);
+  });
 
-      // Définissez la source de l'image sur le chemin de l'image actuelle
-      image.src = originalImagePaths[currentImageIndex];
+  function displayNextImage(changeIndex) {
+    if (imageElements.length === 0) {
+      return; // Aucune image préchargée
+    }
 
-      image.classList.add("img-for-mobile");
+    // Masquez l'image actuelle
+    imageElements[currentImageIndex].style.display = "none";
 
-      // Supprimez le contenu précédent du conteneur d'images
-      imageContainer.innerHTML = "";
-
-      // Ajoutez l'image au conteneur d'images
-      imageContainer.appendChild(image);
-
-      // Incrémentez l'index pour passer à l'image suivante
+    // Incrémentation ou décrémentation de l'index en fonction de l'argument
+    if (changeIndex === "next") {
       currentImageIndex++;
+    } else if (changeIndex === "prev") {
+      currentImageIndex--;
+    }
 
-      // Réinitialisez l'index si toutes les images ont été affichées
-      if (currentImageIndex === originalImagePaths.length) {
-        currentImageIndex = 0;
-      }
+    // Gérez les bords (dernière image devient la première et vice versa)
+    if (currentImageIndex < 0) {
+      currentImageIndex = imageElements.length - 1;
+    } else if (currentImageIndex >= imageElements.length) {
+      currentImageIndex = 0;
+    }
+
+    // Affichez la nouvelle image
+    imageElements[currentImageIndex].style.display = "block";
+
+    // Mettez à jour la description en fonction de l'image actuelle
+    const imagePath = originalImagePaths[currentImageIndex];
+    const description = getDescriptionForImage(imagePath);
+
+    // Affichez la description uniquement si elle existe
+    if (description) {
+      descriptionContainer.textContent = description;
+      descriptionContainer.style.display = "block";
+    } else {
+      descriptionContainer.style.display = "none";
     }
   }
 
-  // Créez une div pour afficher la description
-  const descriptionContainer = document.createElement("div");
-  descriptionContainer.classList.add("description-container");
-  imageContainer.parentNode.appendChild(descriptionContainer);
-
-  displayNextImage();
-
-  // Définissez un gestionnaire d'événements pour le swipe sur la version mobile
-  if (screenWidth <= 768) {
-    // Ajustez la largeur maximale pour la version mobile
-    let touchstartX = 0;
-    let touchendX = 0;
-
-    // Gestionnaire d'événement pour le touchstart (début du toucher)
-    imageContainer.addEventListener("touchstart", (e) => {
+  // Gestionnaires d'événements tactiles (vous pouvez laisser les gestionnaires tels quels)
+  imageContainer.addEventListener(
+    "touchstart",
+    (e) => {
       touchstartX = e.touches[0].clientX;
-    });
+    },
+    { passive: true }
+  );
 
-    // Gestionnaire d'événement pour le touchend (fin du toucher)
-    imageContainer.addEventListener("touchend", (e) => {
-      touchendX = e.changedTouches[0].clientX;
-
-      // Si le swipe va vers la gauche (vers la droite sur un écran mobile)
-      if (touchendX < touchstartX && image) {
-        // Assurez-vous que image est défini
-        // Déplacez l'image vers la gauche avec une transition en utilisant transform
-        image.style.transform = "translateX(-100%)"; // Déplacez l'image hors de l'écran vers la gauche
-        setTimeout(() => {
-          // Mettez à jour l'image et réinitialisez sa position
-          displayNextImage();
-          if (image) {
-            image.style.transform = "translateX(0)"; // Réinitialisez la position
-          }
-        }, 300); // Attendre la fin de l'animation CSS
-
-        // Mettez à jour la description en fonction de l'image actuelle
-        const imagePath = originalImagePaths[currentImageIndex];
-        const description = getDescriptionForImage(imagePath);
-        console.log(description);
-        // Affichez la description uniquement si elle existe
-        if (description) {
-          descriptionContainer.textContent = description;
-          descriptionContainer.style.display = "block"; // Affichez la div de description
-        } else {
-          descriptionContainer.style.display = "none"; // Masquez la div de description s'il n'y a pas de description
-        }
+  imageContainer.addEventListener(
+    "touchmove",
+    (e) => {
+      const touchCurrentX = e.touches[0].clientX;
+      const deltaX = touchCurrentX - touchstartX;
+      if (deltaX > 10) {
+        swipeDirection = "right";
+      } else if (deltaX < -10) {
+        swipeDirection = "left";
       }
-    });
-  }
+    },
+    { passive: true }
+  );
+
+  imageContainer.addEventListener("touchend", (e) => {
+    touchendX = e.changedTouches[0].clientX;
+
+    const currentImage = imageElements[currentImageIndex];
+
+    if (swipeDirection === "left" && imageElements.length > 0) {
+      // Appliquez la transformation à l'image actuelle pour effectuer l'animation
+      currentImage.style.transform = "translateX(-100%)";
+      setTimeout(() => {
+        // Mettez à jour l'image et réinitialisez sa position
+        displayNextImage("next");
+
+        // Réinitialisez la transformation de l'image pour annuler l'animation
+        currentImage.style.transform = "translateX(0)";
+      }, 250); // Attendre la fin de l'animation CSS
+    } else if (swipeDirection === "right" && imageElements.length > 0) {
+      // Appliquez la transformation à l'image actuelle pour effectuer l'animation
+      currentImage.style.transform = "translateX(100%)";
+      setTimeout(() => {
+        // Mettez à jour l'image et réinitialisez sa position
+        displayNextImage("prev");
+
+        // Réinitialisez la transformation de l'image pour annuler l'animation
+        currentImage.style.transform = "translateX(0)";
+      }, 250);
+    }
+
+    swipeDirection = null;
+  });
+
+  // Initialisez l'affichage avec la première image
+  displayNextImage("next");
 }

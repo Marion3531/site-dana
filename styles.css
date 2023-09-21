@@ -151,43 +151,46 @@ img:hover {
 
 /**********************Media Queries**********************/
 
-@media (max-width: 700px) {
+@media (max-width: 1199px) {
   header {
     max-height: 8vh;
     padding-top: 12px;
   }
 
-  h1 {
-    margin-bottom: 4px;
-  }
-
   #activities {
-    margin-left: 1px;
+    margin-top: 8px;
+    margin-bottom: 30px;
   }
 
   .flex-nav {
     flex-direction: column;
   }
 
-  .nav1 {
+  #activities{
+    margin-left: 1px;
   }
 
   #about,
-  #xp {
-    display: none;
+  #xp,
+  #contact {
+    margin-bottom: 18px;
   }
 
   .flex-container {
-    flex-direction: column;
-    height: 60vh;
+    flex-direction: column-reverse;
+    height: auto;
   }
+
 
   .display {
     overflow: hidden;
     position: relative;
-    width: 98%;
+    min-height: 300px;
+    height: 40vh;
+    width: 96%;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
   }
 
   .img-for-mobile {
@@ -205,8 +208,9 @@ img:hover {
   }
 
   .description-container {
-    max-width: 60%;
+    max-width: 200px;
     margin: auto;
+    margin-bottom: 50px;
     background: white;
     color: black;
     padding: 2px;
@@ -218,19 +222,47 @@ img:hover {
   }
 
   .info-section {
-    max-width: 100%;
-    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 90%;
+    margin:auto;
     margin-bottom: 0px;
-  }
-
-  #contact-title {
-    display: none;
   }
 
   #contact ul {
     display: flex;
     flex-direction: column;
-    max-width: 95%;
-    margin: auto;
+  }
+
+  .swipe-left {
+    transform: translateX(-100%);
+  }
+  
+  .swipe-right {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 1199px) and (orientation: landscape) {
+
+  .flex-container{
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .info-section{
+    width: 40%;
+    margin-top: 0px;
+  }
+
+  .image-container{
+    width: 60%;
+  }
+
+  .display{
+    margin-top: 0px;
+    height: 50vh;
   }
 }
